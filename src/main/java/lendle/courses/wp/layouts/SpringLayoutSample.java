@@ -5,6 +5,7 @@
  */
 package lendle.courses.wp.layouts;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SpringLayout;
@@ -27,9 +28,12 @@ public class SpringLayoutSample {
         SpringLayout layout = new SpringLayout();
         frame.setLayout(layout);
         
-        JLabel label=new JLabel("label");
+        JButton label=new JButton("label");
+        //Line34:label的WEST西邊跟frame.getContentPane()的WEST西邊距離5
         //layout the label to (5, 5)
-        
+        layout.putConstraint(SpringLayout.WEST,label, 15,SpringLayout.WEST, frame.getContentPane());
+        layout.putConstraint(SpringLayout.NORTH,label, 5,SpringLayout.NORTH, frame.getContentPane());
+        layout.putConstraint(SpringLayout.SOUTH,label, 5,SpringLayout.SOUTH, frame.getContentPane());
         ////////////////////////////
         
         frame.add(label);
